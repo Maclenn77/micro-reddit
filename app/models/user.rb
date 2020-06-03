@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :subscriptions, :dependent =>  :destroy
   has_many :subreddits, through: :subscriptions
 
+  validates :username, :email, presence: true
+
 end
