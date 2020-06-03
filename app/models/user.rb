@@ -8,8 +8,8 @@ end
 
 class AlphanumericValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    unless value =~ /[0-9a-z]/ 
-      record.errors[attribute] << (options[:message] || "the name must be composed of only letters and numbers")
+    unless value.split('').none?(/[\W]/)
+      record.errors[attribute] << (options[:message] || "must be composed of only letters and numbers")
     end
   end
 end
