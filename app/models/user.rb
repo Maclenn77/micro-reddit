@@ -8,6 +8,9 @@ end
 
 class AlphanumericValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
+    if value.nil?
+      record.errors[attribute] << (options[:message] || "value must not be nil")
+    end
     unless value.split('').none?(/[\W]/)
       record.errors[attribute] << (options[:message] || "must be composed of only letters and numbers")
     end
