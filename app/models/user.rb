@@ -23,6 +23,6 @@ class User < ApplicationRecord
   has_many :subscriptions, :dependent =>  :destroy
   has_many :subreddits, through: :subscriptions
 
-  validates :username, presence: true, alphanumeric: true
+  validates :username, presence: true, alphanumeric: true, length: { maximum: 12 }
   validates :email, presence: true, email: true
 end
