@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
-  resources :posts do
-    resources :comments
-  end
+  
   resources :users
-  resources :taggings
-  resources :tags 
+
+  resources :subscriptions
+
+  resources :subreddits do
+    resources :posts do
+      resources :comments
+    end
+  end
+  
 end
