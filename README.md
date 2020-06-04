@@ -1,3 +1,5 @@
+# Micro-reddit
+
 ## Description
 
 This project is a micro version of Reddit. Users can register, write posts, and add comments to posts. Each post belongs to a subreddit and users can be subscribed to many subreddits.
